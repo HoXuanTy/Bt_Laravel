@@ -25,12 +25,9 @@ use Illuminate\Support\Facades\Schema;
 // Route::get('/Form',[formController::class, 'index']);
 // Route::post('/Form', [formController::class, 'displayInfo']);
 
-Route :: get('/master', [PageController:: class, 'getIndex']);
 
-Route :: get('database', function(){
-    Schema:: create('loaisanpham', function($table){
-        $table->increments('id');
-        $table->string('ten',200);
-    });
-    echo "Da tao thanh cong";
+Route :: get('/', function(){
+    return redirect('/master');
 });
+Route :: get('/master', [PageController:: class, 'getIndex']);
+Route:: get('/type/{id}', [PageController:: class, 'typeProduct']);

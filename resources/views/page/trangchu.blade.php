@@ -106,7 +106,7 @@
 								<div class="col-sm-3">
 									<div class="single-item">
 										@if ($new->promotion_price!=0)
-											<div class="ribbon-wrapper"><div class="ribbon sale"> I Love You</div></div>
+											<div class="ribbon-wrapper"><div class="ribbon sale"> 50%</div></div>
 										@endif
 										<div class="single-item-header">
 											<a href="product.html"><img src="Source/image/product/{{$new->image}}" alt=""></a>
