@@ -42,4 +42,4 @@ class SignupRequest extends FormRequest
             'adress' => 'Vui long nhap dia chi cho dung'
         ];
     }
-}
+}   

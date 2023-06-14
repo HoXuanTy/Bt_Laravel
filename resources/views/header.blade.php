@@ -9,9 +9,12 @@
 				</div>
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
-						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-						<li><a href="#">Đăng kí</a></li>
-						<li><a href="#">Đăng nhập</a></li>
+						@if(Session::has('user'))
+                            <li><a href="logout"><i class="fa fa-user"></i>{{Session('user')->name}}</a></li>
+                        @else
+                            <li><a href="register">Đăng kí</a></li>
+                            <li><a href="login">Đăng nhập</a></li>
+                        @endif
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -92,11 +95,11 @@
 					<ul class="l-inline ov">
 						<li><a href="{{url('/master')}}">Trang chủ</a></li>
 						<li><a href="#">Sản phẩm</a>
-							<ul class="sub-menu">
+							{{-- <ul class="sub-menu">
 								@foreach($type_pro as $item)
 								<li><a href="type/{{$item->id}}">{{$item->name}}</a></li>
 								@endforeach
-							</ul>
+							</ul> --}}
 						</li>
 						<li><a href="#">Giới thiệu</a></li>
 						<li><a href="#">Liên hệ</a></li>

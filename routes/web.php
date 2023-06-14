@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\demoController;
 use App\Http\Controllers\formController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\sumController;
+use App\Http\Controllers\UserController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 
@@ -31,3 +34,21 @@ Route :: get('/', function(){
 });
 Route :: get('/master', [PageController:: class, 'getIndex']);
 Route:: get('/type/{id}', [PageController:: class, 'typeProduct']);
+
+
+
+
+//Login - register
+Route::get('/register', function () {
+    return view('page.register');
+});
+
+Route::post('/register', [UserController::class, 'Register']);
+
+
+Route::get('/login', function () {
+    return view('page.login');
+});
+Route::post('/login', [UserController::class, 'Login']);
+
+Route::get('/logout', [UserController::class, 'Logout']);

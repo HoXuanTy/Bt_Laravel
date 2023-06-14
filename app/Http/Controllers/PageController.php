@@ -32,4 +32,9 @@ class PageController extends Controller
 
         return View('page.TypeProduct', compact('typePro','type_pro'));
     }
+
+    public function getIndexAdmin(){
+
+        
+    }
 }
