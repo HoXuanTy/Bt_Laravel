@@ -38,7 +38,7 @@ Route:: get('/type/{id}', [PageController:: class, 'typeProduct']);
 
 
 
-//Login - register
+//-----------------------Login - register------------------
 Route::get('/register', function () {
     return view('page.register');
 });
@@ -52,3 +52,8 @@ Route::get('/login', function () {
 Route::post('/login', [UserController::class, 'Login']);
 
 Route::get('/logout', [UserController::class, 'Logout']);
+
+//----------------------------------Cart-----------------------
+
+Route::get('add-to-cart/{id}', [PageController::class, 'getAddToCart'])->name('themgiohang');
+Route::get('del-cart/{id}', [PageController::class, 'getDelItemCart'])->name('xoagiohang');

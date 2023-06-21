@@ -35,44 +35,27 @@
 					</div>
 
 					<div class="beta-comp">
+						@if(Session::has('cart'))
 						<div class="cart">
-							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
+							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng @if(Session::has('cart')){{Session('cart')->totalQty}}@else Trong @endif <i class="fa fa-chevron-down"></i></div>
+							
 							<div class="beta-dropdown cart-body">
-								<div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="Source/assets/dest/images/products/cart/1.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
-									</div>
-								</div>
+								@foreach($product_cart as $product)
+								<div class="cart-item" id ="cart-item{{$product['item']['id']}}">
 
-								<div class="cart-item">
+								<a class="cart-item-delete" value="{{$product['item']['id']}}" soluong="{{$product['qty']}}"><i class="fa fa-times"></i></a>
 									<div class="media">
-										<a class="pull-left" href="#"><img src="Source/assets/dest/images/products/cart/2.png" alt=""></a>
+									<a class="pull-left" href="#"><img src="Source/image/product/{{$product['item']['images']}}" alt=""></a>	
 										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
+										<span class="cart-item-title">{{$product['item']['name']}}</span>						
+										<span class="cart-item-amount">{{$product['item']['qty']}}*<span>{{$product['item']['unit_price']}}</span></span>										</div>
 									</div>
 								</div>
-
-								<div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="Source/assets/dest/images/products/cart/3.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
-									</div>
-								</div>
+						
+								@endforeach
 
 								<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
+									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} đồng</span></div>
 									<div class="clearfix"></div>
 
 									<div class="center">
@@ -80,6 +63,9 @@
 										<a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
 									</div>
 								</div>
+							</div>
+							</div> <!-- .cart -->
+								@endif
 							</div>
 						</div> <!-- .cart -->
 					</div>
@@ -95,11 +81,11 @@
 					<ul class="l-inline ov">
 						<li><a href="{{url('/master')}}">Trang chủ</a></li>
 						<li><a href="#">Sản phẩm</a>
-							{{-- <ul class="sub-menu">
+							<ul class="sub-menu">
 								@foreach($type_pro as $item)
 								<li><a href="type/{{$item->id}}">{{$item->name}}</a></li>
 								@endforeach
-							</ul> --}}
+							</ul>
 						</li>
 						<li><a href="#">Giới thiệu</a></li>
 						<li><a href="#">Liên hệ</a></li>

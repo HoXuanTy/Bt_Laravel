@@ -100,6 +100,7 @@
 								<div class="clearfix"></div>
 							</div>
 
+
 							<div class="row">
 								@foreach ($new_product as $new)
 									
@@ -119,16 +120,14 @@
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('themgiohang',$new->id)}}"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="chitiet_sanpham/{{$new->id}}">Details <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>
 								</div>
 
 								@endforeach
-
-
 								<div class="">{{$new_product->links()}}</div>
 
 								{{-- <div class="col-sm-3">
@@ -213,11 +212,11 @@
 												<span>{{$km->unit_price}}</span>
 											</p>
 										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
+										     <div class="single-item-caption">
+                                                <a class="add-to-cart pull-left" href="{{route('themgiohang',$km->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="beta-btn primary" href="add-to-cart/{{$km->id}}">Details <i class="fa fa-chevron-right"></i></a>
+                                                <div class="clearfix"></div>
+                                        </div>
 									</div>
 								</div>
 								@endforeach

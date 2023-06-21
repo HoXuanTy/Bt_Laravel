@@ -44,9 +44,10 @@ class UserController extends Controller
             Session::put('user', $user);
             echo '<script>alert("Đăng nhập thành công.");window.location.assign("master");</script>';
         } else {
-            echo '<script>alert("Đăng nhập thất bại.");windows.location.assign("login");/script>';
+            echo '<script>alert("Đăng nhập thất bại.");window.location.assign("login");</script>';
         }
     }
+
 
     public function Logout()
     {
